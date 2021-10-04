@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>Tird Cocktail</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://kit.fontawesome.com/3dc5764727.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+
+<body>
+    <div class="cabecera">
+        <header>
+            <div class="encabezado">
+                <div class="imagen-encabezado">
+                    <img id="logo" src="../img/logo.jpg" alt="logococktail">
+                </div>
+                <div class="titulo">
+                    <h1>Tird Cocktail</h1>
+                </div>
+                <div class="carrito">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="precio">
+                        <p>
+                            $
+                            <p id="preciocarrito">0</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="contenido">
+        <div class="conteiner-generos">
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="mostPopular.html">Populares</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+
+                </nav>
+            </div>
+            <!--
+                <div class="buscador">
+                    <div id='buscar' class="busqueda">
+                        <input id="busqueda" class="input" placeholder="Ingrese el trago"> </input><br><br>
+                        <input type="button" value="Buscar" id="buscar" onclick="buscarTrago()" />
+                        <br>
+                    </div>
+
+                </div>
+                -->
+            <div class="container-buscador">
+                <div class="buscar">
+                    <div class="texto">
+                        <input type="text" class="buscar-texto" placeholder="Ingrese el nombre del trago"
+                            id="busqueda" />
+                    </div>
+                    <div class="busqueda boton" id="buscarTrago">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="conteiner-trago" id="dinamica">
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <footer>
+        <p>Copyright Ivan Rodriguez - Luis Daniel Terceros Quiroz</p>
+    </footer>
+    <script type="module" src="../js/funciones.js"></script>
+    <script src="../js/jQuery/jquery-3.5.1.min.js"></script>
+</body>
+
+</html>
