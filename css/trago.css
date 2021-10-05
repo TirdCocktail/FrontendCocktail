@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+	scroll-behavior: smooth;
+}
+.contenido {
+    min-height: 78vh;
+    max-height: auto;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    background-color: #454951
+}
+
+.dinamic-trago{
+    height: 100%;
+    width: 100%;
+    max-height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+.nombre-trago,.ingredientes-trago,.nombre-ingrediente{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.nombre-trago,.ingredientes-trago > p{
+    font-weight: bold;
+    font-size: 18px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color:rgb(255, 255, 255);
+}
+.imagen-trago {
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    text-align: center;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.foto {
+    width: 100%;
+}
+.ingredientes-conteiner{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+.ingredientes{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15vh, 1fr));
+    grid-auto-rows: minmax(150px, auto);
+    grid-row-gap: 15px;
+    grid-column-gap: 15px;
+}
+.ingrediente{
+    padding: 5px;
+}
+.nombre-ingrediente > p{
+    font-weight: bold;
+    font-size: 15px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color:rgb(255, 255, 255);
+}
+
+.informacion{
+    height: 100%;
+    width: 100%;
+    max-height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.titulo-alcohol,.alcohol,.cant-ingredientes,.nombre-ingredientes,.preparacion,.preparacion-desc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.nombre-trago,.titulo-alcohol,.cant-ingredientes,.preparacion > p{
+    font-weight: bold;
+    font-size: 18px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color:rgb(255, 255, 255);
+
+
+    border-top: 1px solid rgb(218, 218, 218);
+    border-bottom: 1px solid rgb(218, 218, 218);
+    background-color: #1b1b1b;;
+    color: rgb(235, 235, 235);
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+
+}
+
+.alcohol,.nombre-ingredientes,.preparacion-desc > p{
+    font-weight: bold;
+    font-size: 15px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color:rgb(255, 255, 255);
+    padding-bottom: 15px;
+}
+
+.nombre-ingredientes{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+@media screen and (min-width:768px){
+}
+@media screen and (min-width: 481px) and (max-width: 767px) {
+}
+@media screen and (max-width: 480px) {
+    .contenido {
+        min-height: 78vh;
+        max-height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 290px) {
+    .contenido {
+        min-height: 78vh;
+        max-height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}
