@@ -9,7 +9,6 @@ nav {
     justify-content: center;
     /*padding: 16px 20px;*/
     background-color: rgb(226, 225, 225);
-    border-right: 3px solid rgb(212, 211, 211);
     /*width: 240px;*/
     /*row-gap: 15px;*/
 }
@@ -41,6 +40,11 @@ ul{
     padding-bottom: 16px;
     border: solid 1px black;
 
+}
+.enlace:hover {
+    /*background-color: #eeeeee;*/
+    background-color: #cbe6e2;
+    color: black;
 }
 
 /* HEADER */
