@@ -106,7 +106,9 @@ function CargarIngredientes(bebida) {
             </p>
         </div>
         <div class="nombre-ingredientes">
-            ${ingredientes}
+            <p>
+                ${ingredientes}
+            </p>
         </div>
         <div class="preparacion">
             <p>
@@ -118,7 +120,74 @@ function CargarIngredientes(bebida) {
                 ${bebida.strInstructions}
             </p>
         </div>
+        <div class="compartir">
+                    <p>
+                        COMPARTIR
+                    </p>
+        </div>
+        <div class="fomulario">
+        <form name="formulario" action="Compartirxmail" method="POST">
+            <div class="item">
+                <div class="form" id="email-form">
+                    <label for="email">Email Emisor:</label>
+                    <input type="text" id="emisor" placeholder="Requerido">
+                </div>
+                <div class="form" id="email-form">
+                    <label for="email">Email Destino:</label>
+                    <input type="text" id="destino" placeholder="Requerido">
+                </div>
+                <div class="form">
+                    <label for="mensaje">Mensaje:</label>
+                    <input type="text" id="mensaje" maxlength="200" size="40" placeholder="Opcional">
+                </div>
+                <div class="form" id="botones">
+                    <input type="button" value="Enviar mail" id="enviar" />
+                    <input type="button" value="Cancelar" id="cancelar"/>
+                </div>
+            </div>
+    </div> 
+        
         `
     main.append(card);
 }
+
+$(document).on('click', '#enviar', function () {
+    var mailemisor = document.getElementById("emisor").value;
+	var maildestino = document.getElementById("destino").value;
+	var mensaje = document.getElementById("mensaje").value;
+
+    localStorage.setItem("destino", maildestino);
+	localStorage.setItem("mensaje", mensaje);
+
+    var regExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (mailemisor == null || mailemisor == "" || !regExp.test(mailemisor)) {
+        alert("Debe ingresar un mail valido");
+        return false;
+    }
+    else if (maildestino == null || maildestino == "" || !regExp.test(maildestino)){
+        alert("Debe ingresar un mail valido");
+        return false;
+    }
+    else{
+        $.ajax({
+            type: 'GET',
+            url: 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + sessionStorage.getItem("idtrago"),
+            dataType: "json",
+        }).done((data) => {
+            console.log(data)
+            data.drinks.forEach(trago => {
+                console.log(trago);
+                if (trago.idDrink != null) {
+                    var mail = "mailto:"+maildestino+"?&subject=Compremos este trago"+
+								"&body=Nombre trago: "+trago.strDrink+
+                                " %0D%0A %0D%0AIngrediente: "+trago.strIngredient1+
+                                " %0D%0A %0D%0APreparacion: "+trago.strInstructions+
+								" %0D%0A %0D%0AMensaje: "+mensaje;
+			        window.open(mail,'popup','toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=600,width=700,height=700');
+                }
+            })
+        });
+    }
+});
 

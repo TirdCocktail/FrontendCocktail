@@ -92,7 +92,7 @@ html {
     justify-content: center;
     margin-bottom: 15px;
 }
-.nombre-trago,.titulo-alcohol,.cant-ingredientes,.preparacion > p{
+.nombre-trago,.titulo-alcohol,.cant-ingredientes,.preparacion, .compartir > p{
     font-weight: bold;
     font-size: 18px;
     font-weight: bold;
