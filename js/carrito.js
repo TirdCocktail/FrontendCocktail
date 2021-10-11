@@ -3,10 +3,6 @@ window.onload = () => {
     CargarTotal() 
 }
 
-
-
-
-
 function CargarCarrito() {
     $('#dinamica').empty();
     var i = 0;
@@ -45,19 +41,15 @@ function CargarCarrito() {
 }
 
 $(document).on('click', '#quitar', function () {
-    console.log(this.value)
     var i = 0;
     var array = JSON.parse(localStorage.getItem('carrito'));
     array.forEach(trago => {
         if (trago.idDrink == this.value) {
-            console.log("Borro el item de la posicion: ", i)
             array.splice(i, 1);
-            //$(`#${this.value}`).empty();
         }
         i++
     })
     localStorage.setItem('carrito', JSON.stringify(array));
-
     CargarCarrito();
     CargarTotal();
 });
@@ -65,7 +57,7 @@ $(document).on('click', '#quitar', function () {
 
 
 $(document).on('click', '.fa-shopping-cart', function () {
-
+    window.open('/html/carrito.html');
 });
 
 function CargarTotal() {

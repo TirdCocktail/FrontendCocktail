@@ -5,7 +5,6 @@ window.onload = () => {
     CargarTrago();
 }
 
-
 function CargarTrago() {
     $.ajax({
         type: 'GET',
@@ -14,7 +13,6 @@ function CargarTrago() {
     }).done((data) => {
         var i = 0;
         var main = $('.dinamic-trago');
-        console.log(data.drinks[0]);
         sessionStorage.setItem("trago-completo", JSON.stringify(data.drinks[0]));
         AgregarAlHistorial();
 
@@ -41,29 +39,6 @@ function CargarTrago() {
             main.append(card);
             i++;
         }
-        /*
-        data.drinks.forEach(trago => {
-            console.log(trago);
-            if (trago.idDrink != null) {
-                var card = `
-                <div class="nombre-trago">
-                    <p>
-                        ${trago.strDrink.toUpperCase()}
-                    </p>
-                </div>
-                <div class="imagen-trago">
-                    <img class="foto" src="${trago.strDrinkThumb}" alt="trago" />
-                </div>
-                <div class="comprar">
-                    <input type="number" class="input-compra" id="compra" value = '1'/>
-                    <button type="submit" class="agregar" id="agregar" value = '${"aa"}'>Añadir al carrito</button>
-                </div>
-                `
-                main.append(card);
-                i++;
-            }
-        })
-        */
         CargarIngredientes(data.drinks[0]);
     });
 }
@@ -105,7 +80,6 @@ function CargarIngredientes(bebida) {
         `
     }
     if (bebida.strIngredient5 != null && bebida.strIngredient5.length > 2) {
-        console.log(bebida.strIngredient1);
         ingredientes +=
             `<p>
             5- ${bebida.strIngredient5}
@@ -119,7 +93,6 @@ function CargarIngredientes(bebida) {
         </p>
         `
     }
-    console.log(ingredientes);
     $('.informacion').empty();
     var main = $('.informacion');
     var card = `
@@ -184,39 +157,23 @@ function CargarIngredientes(bebida) {
 
 $(document).on('click', '#agregar', function () {
     var cantidad_tragos = document.getElementById("compra").value;
-    console.log(cantidad_tragos)
-
     let array = [];
     let trago_compra = 0;
     let mapa;
-    console.log();
     if (!localStorage.getItem('carrito')) {
-        //array.push(JSON.parse(sessionStorage.getItem("trago-completo")));
-        //localStorage.setItem('carrito',JSON.stringify(array));
         trago_compra = JSON.parse(sessionStorage.getItem("trago-completo"));
         trago_compra.cantidad = parseInt(cantidad_tragos);
-
-
         mapa = new Map(JSON.parse(localStorage.getItem('precios-tragos')));
         trago_compra.precio = mapa.get(trago_compra.idDrink);
-
         array.push(trago_compra);
         localStorage.setItem('carrito', JSON.stringify(array));
     } else {
-        //array = JSON.parse(localStorage.getItem('carrito'));
-        //array.push(JSON.parse(sessionStorage.getItem("trago-completo")));
-        //localStorage.setItem('carrito',JSON.stringify(array));
-
         var encontrado = false;
         array = JSON.parse(localStorage.getItem('carrito'));
         array.forEach(trago => {
-            console.log(trago.idDrink);
-            console.log(JSON.parse(sessionStorage.getItem("trago-completo")).idDrink);
             if (trago.idDrink === JSON.parse(sessionStorage.getItem("trago-completo")).idDrink) {
                 trago.cantidad = parseInt(trago.cantidad) + parseInt(cantidad_tragos);
-                console.log("Ya comprado")
                 encontrado = true;
-
             }
         })
         if (!encontrado) {
@@ -224,14 +181,9 @@ $(document).on('click', '#agregar', function () {
             trago_compra.cantidad = parseInt(cantidad_tragos);
             mapa = new Map(JSON.parse(localStorage.getItem('precios-tragos')));
             trago_compra.precio = mapa.get(trago_compra.idDrink);
-            console.log("Nueva Compra")
             array.push(trago_compra);
         }
-
         localStorage.setItem('carrito', JSON.stringify(array));
-
-
-
     }
     alert("Agregado al carrito")
 });
@@ -243,11 +195,7 @@ $(document).on('click', '.fa-shopping-cart', function () {
 function AgregarAlHistorial2() {
     let array = [];
     let trago;
-    console.log();
     if (!localStorage.getItem('historial')) {
-        //trago = JSON.parse(sessionStorage.getItem("trago-completo"));
-        //array.push(trago);
-        //localStorage.setItem('historial', JSON.stringify(array));
     } else {
         array = JSON.parse(localStorage.getItem('historial'));
         var i = 0;
@@ -257,9 +205,6 @@ function AgregarAlHistorial2() {
             }
             i++;
         })
-        //trago = JSON.parse(sessionStorage.getItem("trago-completo"));
-        //array.push(trago);
-        //localStorage.setItem('historial', JSON.stringify(array));
     }
     trago = JSON.parse(sessionStorage.getItem("trago-completo"));
     array.push(trago);
@@ -269,7 +214,6 @@ function AgregarAlHistorial2() {
 function AgregarAlHistorial() {
     let array = [];
     let trago;
-    console.log();
     if (localStorage.getItem('historial')) {
         array = JSON.parse(localStorage.getItem('historial'));
         var i = 0;
@@ -284,6 +228,7 @@ function AgregarAlHistorial() {
     array.push(trago);
     localStorage.setItem('historial', JSON.stringify(array));
 }
+
 $(document).on('click', '#enviar', function () {
     var mailemisor = document.getElementById("emisor").value;
 	var maildestino = document.getElementById("destino").value;
@@ -308,9 +253,7 @@ $(document).on('click', '#enviar', function () {
             url: 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + sessionStorage.getItem("idtrago"),
             dataType: "json",
         }).done((data) => {
-            console.log(data)
             data.drinks.forEach(trago => {
-                console.log(trago);
                 if (trago.idDrink != null) {
                     var mail = "mailto:"+maildestino+"?&subject=Compremos este trago"+
 								"&body=Nombre trago: "+trago.strDrink+
