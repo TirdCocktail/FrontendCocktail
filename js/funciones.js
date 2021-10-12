@@ -1,13 +1,53 @@
 window.onload = () => {
     sessionStorage.removeItem("idtrago");
 }
+var busc = document.getElementById("busc").value;
+$('#busc').change(function() {
+    busc = $(this).val();
+    var busqueda = $(".buscar-texto")[0];
+    switch (busc) {
+        case "nombre":
+            busqueda.placeholder="Ingrese el nombre";
+            break;
+        case "ingrediente":
+            busqueda.placeholder="Ingrese el ingrediente";
+            break;
+        default:
+            break;
+    }
+});
 
-$(document).on('click', '#buscarTrago', function () {
+
+$.ajax({
+    type: 'GET',
+    url: 'https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list',
+    dataType: 'json'
+}).done((data) => {
+    data.drinks.map(drink=>{
+    var card1= `<input type="button" value="${drink.strAlcoholic}" id="alcoholic">`
+    var filtroa = $('#alcohol');
+    filtroa.append(card1);
+    });
+});
+    
+$.ajax({
+    type: 'GET',
+    url: 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list',
+    dataType: 'json'
+}).done((data) => {
+    data.drinks.map(drink=>{
+        var card2= `<input type="button" value="${drink.strCategory}" id="category">`
+        var filtroc = $('#categoria');
+        filtroc.append(card2);
+    });
+});
+
+$(document).on('click', '#category', function () {
     $('#dinamica').empty();
-    var busqueda = document.getElementById("busqueda").value;
+    var category = document.getElementById("category").value;
     $.ajax({
-        type: 'GET',
-        url: 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + busqueda,
+    type: 'GET',
+        url: `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`,
         dataType: 'json'
     }).done((data) => {
         var pagina = 0;
@@ -15,6 +55,64 @@ $(document).on('click', '#buscarTrago', function () {
         Renderizar(pagina);
     });
 });
+
+
+$(document).on('click', '#alcoholic', function () {
+    $('#dinamica').empty();
+    var alcoholic = document.getElementById("alcoholic").value;
+    console.log(alcoholic)
+    $.ajax({
+    type: 'GET',
+        url: `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${alcoholic}`,
+        dataType: 'json'
+    }).done((data) => {
+        var pagina = 0;
+        sessionStorage.setItem("tragos", JSON.stringify(data.drinks));
+        Renderizar(pagina);
+    });
+});
+
+
+
+
+$('#buscarTrago').on('click', function() {
+    $('#dinamica').empty();
+    var busqueda = document.getElementById("busqueda").value;
+    if (busqueda == "") return;
+    
+    if (busc == "nombre"){
+        buscarPorNombre(busqueda);
+    } else if(busc == "ingrediente") {
+        buscarPorIngrediente(busqueda);
+    }
+});
+
+function buscarPorNombre(valor) {
+    const URL  = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
+    $.ajax({
+        type: 'GET',
+        url: `${URL}`+ valor,
+        dataType: 'json'
+    }).done((data) => {
+        var pagina = 0;
+        sessionStorage.setItem("tragos", JSON.stringify(data.drinks));
+        Renderizar(pagina);
+    });
+}
+
+function buscarPorIngrediente(valor){
+    const URL  = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i='+valor;
+    console.log(URL)
+    $.ajax({
+        type: 'GET',
+        url: `${URL}`,
+        dataType: 'json'
+    }).done((data) => {
+        var pagina = 0;
+        sessionStorage.setItem("tragos", JSON.stringify(data.drinks));
+        Renderizar(pagina);
+    });
+}
 
 function Renderizar(pagina) {
     let mapa;
@@ -24,6 +122,7 @@ function Renderizar(pagina) {
         mapa = new Map(JSON.parse(localStorage.getItem('precios-tragos')));
     }
     var tragos = JSON.parse(sessionStorage.getItem("tragos"));
+    console.log(tragos)
     var main = $('#dinamica');
     var precio;
     var j = 1;

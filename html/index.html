@@ -40,14 +40,34 @@
                 </nav>
             </div>
             <div class="container-buscador">
+                <div class="filtro-busqueda">
+                    <label for="busc" id="buscx">Buscar por:</label>
+                    <select name="busc" id="busc">
+                        <option value="nombre">Nombre</option>
+                        <option value="ingrediente">Ingrediente</option>
+                    </select>
+                </div>   
                 <div class="buscar">
-                    <div class="texto">
-                        <input type="text" class="buscar-texto" placeholder="Ingrese el nombre del trago"
-                            id="busqueda" />
-                    </div>
-                    <div class="busqueda boton" id="buscarTrago">
-                        <i class="fas fa-search"></i>
-                    </div>
+                        <div class="texto">
+                            <input type="text" class="buscar-texto" placeholder="Ingrese el nombre"
+                                id="busqueda" />
+                        </div>
+                        <div class="busqueda boton" id="buscarTrago">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>    
+                </div> 
+            </div>
+
+            <div class="container-filtros">
+                <div id="view-trago">Ver tragos por: </div>
+                <div class="alcohol-filtro" id="alcohol">
+                    <label for="conalcohol" id="conalcohol">Contenido Alcohólico</label>
+        
+                </div>
+                <div class="categoria-filtro" id="categoria">
+                    <label for="categoria" id="selcat">Categoria</label>
+
                 </div>
             </div>
 
