@@ -43,55 +43,53 @@ function CargarTrago() {
     });
 }
 
+var trago;
+var contenido;
+var ingredientes;
+var preparacion;
 function CargarIngredientes(bebida) {
-    var contenido;
+    if (bebida.strDrink != null){
+        trago = bebida.strDrink;
+    }
+    /*var contenido;*/
     if (bebida.strAlcoholic == "Alcoholic") {
         contenido = "Esta bebida contiene alcohol"
     } else {
         contenido = "Esta bebida no contiene alcohol"
     }
-    var ingredientes;
+    /*var ingredientes;*/
     if (bebida.strIngredient1 != null && bebida.strIngredient1.length > 2) {
         ingredientes =
-            `<p>
-            1- ${bebida.strIngredient1}
-        </p>
-        `
+            `  1- ${bebida.strIngredient1}
+            `
     }
     if (bebida.strIngredient2 != null && bebida.strIngredient2.length > 2) {
         ingredientes +=
-            `<p>
-            2- ${bebida.strIngredient2}
-        </p>
-        `
+            `  2- ${bebida.strIngredient2}
+            `
     }
     if (bebida.strIngredient3 != null && bebida.strIngredient3.length > 2) {
         ingredientes +=
-            `<p>
-            3- ${bebida.strIngredient3}
-        </p>
-        `
+            `  3- ${bebida.strIngredient3}
+            `
     }
     if (bebida.strIngredient4 != null && bebida.strIngredient4.length > 2) {
         ingredientes +=
-            `<p>
-            4- ${bebida.strIngredient4}
-        </p>
-        `
+            `  4- ${bebida.strIngredient4}
+            `
     }
     if (bebida.strIngredient5 != null && bebida.strIngredient5.length > 2) {
         ingredientes +=
-            `<p>
-            5- ${bebida.strIngredient5}
-        </p>
-        `
+            `  5- ${bebida.strIngredient5}
+            `
     }
     if (bebida.strIngredient6 != null && bebida.strIngredient6.length > 2) {
         ingredientes +=
-            `<p>
-            6- ${bebida.strIngredient6}
-        </p>
-        `
+            `  6- ${bebida.strIngredient6}
+            `
+    }
+    if (bebida.strInstructions != null){
+        preparacion= bebida.strInstructions;
     }
     $('.informacion').empty();
     var main = $('.informacion');
@@ -112,7 +110,9 @@ function CargarIngredientes(bebida) {
             </p>
         </div>
         <div class="nombre-ingredientes">
-            ${ingredientes}
+            <p>
+                ${ingredientes}
+            </p>
         </div>
         <div class="preparacion">
             <p>
@@ -121,13 +121,13 @@ function CargarIngredientes(bebida) {
         </div>
         <div class="preparacion-desc">
             <p>
-                ${bebida.strInstructions}
+                ${preparacion}
             </p>
         </div>
         <div class="compartir">
-                    <p>
-                        COMPARTIR
-                    </p>
+            <p>
+                COMPARTIR
+            </p>
         </div>
         <div class="fomulario">
             <form name="formulario" action="Compartirxmail" method="POST">
@@ -248,21 +248,12 @@ $(document).on('click', '#enviar', function () {
         return false;
     }
     else{
-        $.ajax({
-            type: 'GET',
-            url: 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + sessionStorage.getItem("idtrago"),
-            dataType: "json",
-        }).done((data) => {
-            data.drinks.forEach(trago => {
-                if (trago.idDrink != null) {
-                    var mail = "mailto:"+maildestino+"?&subject=Compremos este trago"+
-								"&body=Nombre trago: "+trago.strDrink+
-                                " %0D%0A %0D%0AIngrediente: "+trago.strIngredient1+
-                                " %0D%0A %0D%0APreparacion: "+trago.strInstructions+
+        var mail = "mailto:"+maildestino+"?&subject=Compremos este trago"+
+								"&body=Nombre trago: "+trago+
+                                " %0D%0A %0D%0ADescripción: "+contenido+
+                                " %0D%0A %0D%0AIngredientes: "+ingredientes+
+                                " %0D%0A %0D%0APreparación: "+preparacion+
 								" %0D%0A %0D%0AMensaje: "+mensaje;
 			        window.open(mail,'popup','toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=600,width=700,height=700');
-                }
-            })
-        });
     }
 });
