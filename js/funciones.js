@@ -44,7 +44,8 @@ $.ajax({
 
 $(document).on('click', '#category', function () {
     $('#dinamica').empty();
-    var category = document.getElementById("category").value;
+    var category = $(this).val();
+    console.log(category);
     $.ajax({
     type: 'GET',
         url: `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`,
@@ -59,7 +60,7 @@ $(document).on('click', '#category', function () {
 
 $(document).on('click', '#alcoholic', function () {
     $('#dinamica').empty();
-    var alcoholic = document.getElementById("alcoholic").value;
+    var alcoholic = $(this).val();
     console.log(alcoholic)
     $.ajax({
     type: 'GET',
