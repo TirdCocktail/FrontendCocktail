@@ -104,6 +104,8 @@ article:hover {
     display: flex;
     align-items: center;
     justify-content: center; 
+    flex-direction: column;
+
 }
 
 .descripcion > p{
@@ -220,4 +222,25 @@ article:hover {
 
 .texto-busqueda{
     text-align: center;
+}
+
+.button-view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1%;
+}
+.ver-mas{
+    font-size: 20px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 4px;
+    border: solid 1px rgb(0, 0, 0);
+    margin-top: 3px;
+}
+.ver-mas:hover{
+    background-color: rgb(71, 207, 89);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
 }

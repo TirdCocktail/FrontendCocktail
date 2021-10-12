@@ -87,22 +87,14 @@ header {
 }
 .carrito{
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    row-gap: 5px;
 }
 .carrito > i{
-    font-size: 35px;
-}
-#preciocarrito > p{
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 40px;
 }
 
-
-
-#logo:hover{
+#logo:hover,.fa-shopping-cart:hover{
     cursor: pointer;
 }
 
