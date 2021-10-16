@@ -91,6 +91,7 @@ html {
 .columna > p {
     font-size: 15px;
     color:rgb(235, 235, 235);
+    text-align: justify;
 }
 
 
