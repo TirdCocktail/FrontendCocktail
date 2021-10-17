@@ -295,19 +295,17 @@ article:hover {
     font-weight: bold;
     font-size: 15px;
     padding: 5px;
-    /*margin-bottom: 10px;*/
 }
 
 
 
 #alcohol, #categoria{
-    display: flex;
+    display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
-    column-gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    column-gap: 10px;
+    row-gap: 10px;
     padding-bottom: 15px;
-}
-
-.alcohol-filtro{
-    
+    width: 100%;
+    text-align: center;
 }
