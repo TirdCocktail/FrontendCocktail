@@ -50,6 +50,7 @@ $('#busc').change(function() {
     busc = $(this).val();
     switch (busc) {
         case "nombre":
+            $('#error').empty();
             $('.tipo-busqueda').empty();
             var nombre = $('.tipo-busqueda');
             var card = `
@@ -66,6 +67,7 @@ $('#busc').change(function() {
             nombre.append(card);
             break;
         case "ingrediente":
+            $('#error').empty();
             $('.tipo-busqueda').empty();
             var ingrediente = $('.tipo-busqueda');
             var card = `
@@ -82,6 +84,7 @@ $('#busc').change(function() {
             ingrediente.append(card);
             break;
         case "contienealcohol":
+            $('#error').empty();
             $('.tipo-busqueda').empty();
             var alcohol = $('.tipo-busqueda');
             var card = `
@@ -93,6 +96,7 @@ $('#busc').change(function() {
             ContAlcohol();
             break;
         case "categoria":
+            $('#error').empty();
             $('.tipo-busqueda').empty();
             var categoria = $('.tipo-busqueda');
             var card = `
@@ -111,6 +115,7 @@ $('#busc').change(function() {
 
 
 $(document).on('click','#buscarTrago', function() {
+    $('#error').empty();
     $('#dinamica').empty();
     var busqueda = document.getElementById("busqueda").value;
     if (busqueda == "") return;
@@ -118,6 +123,7 @@ $(document).on('click','#buscarTrago', function() {
     if (busc == "nombre"){
         buscarPorNombre(busqueda);
     } else if(busc == "ingrediente") {
+        console.log(busc);
         buscarPorIngrediente(busqueda);
     }
 });
@@ -129,23 +135,35 @@ function buscarPorNombre(valor) {
         url: `${URL}`+ valor,
         dataType: 'json'
     }).done((data) => {
-        var pagina = 0;
-        sessionStorage.setItem("tragos", JSON.stringify(data.drinks));
-        Renderizar(pagina);
+        var result = data.drinks;
+        if(result != null){
+            console.log(result);
+            var pagina = 0;
+            sessionStorage.setItem("tragos", JSON.stringify(data.drinks));
+            Renderizar(pagina);
+        }
+        else{
+            console.log(result);
+            error.innerHTML ="Sin resultados, vuelva a intentar."
+        }
     });
 }
 
 function buscarPorIngrediente(valor){
-    const URL  = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i='+valor;
+    const URL  = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=';
+    console.log(URL);
     $.ajax({
         type: 'GET',
-        url: `${URL}`,
-        dataType: 'json'
+        url: `${URL}`+ valor,
+        dataType: 'json',
     }).done((data) => {
         var pagina = 0;
         sessionStorage.setItem("tragos", JSON.stringify(data.drinks));
         Renderizar(pagina);
-    });
+        result = data;
+    }).fail(() => {
+        error.innerHTML ="Sin resultados, vuelva a intentar."
+    });;
 }
 
 
