@@ -26,7 +26,6 @@ html {
 
 
 .conteiner-generos {
-    background-color: #454951;
     padding-left: 1%;
     padding-right: 1%;
     padding-top: 1%;
@@ -145,11 +144,6 @@ article:hover {
 
 
 
-
-
-
-
-
 /* BUSCADOR */
 
 .header-buscador {
@@ -188,7 +182,6 @@ article:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*position: absolute;*/
     background: #f1efef;
     padding: 10px;
     height: 40px;
@@ -315,4 +308,44 @@ article:hover {
     padding-bottom: 15px;
     width: 100%;
     text-align: center;
+}
+
+
+
+.nombre-trago{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.nombre-trago> p{
+    font-weight: bold;
+    font-size: 18px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color:rgb(255, 255, 255);
+}
+.nombre-trago> p{
+    font-weight: bold;
+    font-size: 18px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color:rgb(255, 255, 255);
+    border-top: 1px solid rgb(218, 218, 218);
+    border-bottom: 1px solid rgb(218, 218, 218);
+    background-color: #1b1b1b;;
+    color: rgb(235, 235, 235);
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+#categoria> *{
+    padding: 5px;
+}
+#alcohol> *{
+    padding: 5px;
 }

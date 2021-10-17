@@ -3,8 +3,31 @@ window.onload = () => {
         window.location.href = 'index.html';
     }
     CargarTrago();
-}
 
+
+}
+$(document).on('click', '.imagen-trago', function () {
+    
+});
+$(document).on('click', '.button-acept', function () {
+    document.getElementById('modal_container').classList.remove('show');
+});
+function Unidades(){
+    let trago_compra = JSON.parse(sessionStorage.getItem("trago-completo"));
+    var array = JSON.parse(localStorage.getItem('carrito'));
+    if(array){
+        array.forEach(trago => {
+            if (trago.idDrink === trago_compra.idDrink) {
+                $('#unidades').empty();
+                var main = $('#unidades');
+                var card = `
+                    Hay ${trago.cantidad} unidades en el carrito
+                    `
+                main.append(card);
+            }
+        })
+    }
+}
 function CargarTrago() {
     $.ajax({
         type: 'GET',
@@ -35,11 +58,15 @@ function CargarTrago() {
                 <input type="number" class="input-compra" id="compra" value = '1'/>
                 <button type="submit" class="agregar" id="agregar" value = '${"aa"}'>Añadir al carrito</button>
             </div>
+            <div class="unidades" id="unidades">
+            </div>
             `
             main.append(card);
             i++;
         }
         CargarIngredientes(data.drinks[0]);
+        Unidades();
+
     });
 }
 
@@ -148,6 +175,8 @@ function CargarIngredientes(bebida) {
                         <input type="button" value="Enviar mail" id="enviar" />
                         <input type="button" value="Cancelar" id="cancelar"/>
                     </div>
+                    <div class="validaciones">
+                    </div>
                 </div>
             </form>
         </div> 
@@ -158,16 +187,17 @@ function CargarIngredientes(bebida) {
 $(document).on('click', '#agregar', function () {
     var cantidad_tragos = document.getElementById("compra").value;
     let array = [];
-    let trago_compra = 0;
+    let trago_compra = JSON.parse(sessionStorage.getItem("trago-completo"));
     let mapa;
     if (!localStorage.getItem('carrito')) {
-        trago_compra = JSON.parse(sessionStorage.getItem("trago-completo"));
+        //trago_compra = JSON.parse(sessionStorage.getItem("trago-completo"));
         trago_compra.cantidad = parseInt(cantidad_tragos);
         mapa = new Map(JSON.parse(localStorage.getItem('precios-tragos')));
         trago_compra.precio = mapa.get(trago_compra.idDrink);
         array.push(trago_compra);
         localStorage.setItem('carrito', JSON.stringify(array));
-    } else {
+    }
+    else {
         var encontrado = false;
         array = JSON.parse(localStorage.getItem('carrito'));
         array.forEach(trago => {
@@ -177,7 +207,7 @@ $(document).on('click', '#agregar', function () {
             }
         })
         if (!encontrado) {
-            trago_compra = JSON.parse(sessionStorage.getItem("trago-completo"));
+            //trago_compra = JSON.parse(sessionStorage.getItem("trago-completo"));
             trago_compra.cantidad = parseInt(cantidad_tragos);
             mapa = new Map(JSON.parse(localStorage.getItem('precios-tragos')));
             trago_compra.precio = mapa.get(trago_compra.idDrink);
@@ -185,7 +215,17 @@ $(document).on('click', '#agregar', function () {
         }
         localStorage.setItem('carrito', JSON.stringify(array));
     }
-    alert("Agregado al carrito")
+
+    document.getElementById('modal_container').classList.add('show');
+    $('#modal').css('background-image', 'url(' + trago_compra.strDrinkThumb + ')');
+    $('.text-modal').empty();
+    var main = $('.text-modal');
+    var card = `
+        <p>
+        ¡Se añadieron correctamente ${cantidad_tragos} unidades de ${trago_compra.strDrink} al carrito!
+        </p>
+        `
+    main.append(card);
 });
 
 $(document).on('click', '.fa-shopping-cart', function () {
@@ -239,13 +279,26 @@ $(document).on('click', '#enviar', function () {
 
     var regExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
+
     if (mailemisor == null || mailemisor == "" || !regExp.test(mailemisor)) {
-        alert("Debe ingresar un mail valido");
-        return false;
+        $('.validaciones').empty();
+        var main = $('.validaciones');
+        var card = `
+            <p>
+                Debe ingresar un mail valido
+            </p>
+            `
+        main.append(card);
     }
     else if (maildestino == null || maildestino == "" || !regExp.test(maildestino)){
-        alert("Debe ingresar un mail valido");
-        return false;
+        $('.validaciones').empty();
+        var main = $('.validaciones');
+        var card = `
+            <p>
+                Debe ingresar un mail valido
+            </p>
+            `
+        main.append(card);
     }
     else{
         var mail = "mailto:"+maildestino+"?&subject=Compremos este trago"+

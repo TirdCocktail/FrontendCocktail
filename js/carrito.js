@@ -9,35 +9,35 @@ function CargarCarrito() {
     var main = $('#dinamica');
     var precio;
     var array = JSON.parse(localStorage.getItem('carrito'));
-    array.forEach(trago => {
-        //precio = Math.round(Math.random() * (800 - 200) + 200);
-        if (trago.idDrink != null) {
-            var card = `
-                <article id="${trago.idDrink}">
-                    <div class="trago-carrito">
-                        <div class="imagen">
-                            <img class="foto" src="${trago.strDrinkThumb}" alt="trago encontrado" />
+    if(array){
+        array.forEach(trago => {
+            if (trago.idDrink != null) {
+                var card = `
+                    <article id="${trago.idDrink}">
+                        <div class="trago-carrito">
+                            <div class="imagen">
+                                <img class="foto" src="${trago.strDrinkThumb}" alt="trago encontrado" />
+                            </div>
+                            <div class="descripcion">
+                                <p>
+                                    ${trago.strDrink}
+                                </p>
+                                <p>
+                                    Precio: ${trago.precio}$
+                                </p>
+                                <p>
+                                    Cantidad: ${trago.cantidad}
+                                </p>
+                                <button type="submit" class="quitar" id="quitar" value = '${trago.idDrink}'>Quitar del carrito</button>
+                            </div>
                         </div>
-                        <div class="descripcion">
-                            <p>
-                                ${trago.strDrink}
-                            </p>
-                            <p>
-                                Precio: ${trago.precio}$
-                            </p>
-                            <p>
-                                Cantidad: ${trago.cantidad}
-                            </p>
-                            <button type="submit" class="quitar" id="quitar" value = '${trago.idDrink}'>Quitar del carrito</button>
-                        </div>
-                    </div>
-                </article>
-                `
-            main.append(card);
-            i++;
-        }
-    })
-
+                    </article>
+                    `
+                main.append(card);
+                i++;
+            }
+        })
+    }
 }
 
 $(document).on('click', '#quitar', function () {
@@ -63,9 +63,11 @@ $(document).on('click', '.fa-shopping-cart', function () {
 function CargarTotal() {
     var total = 0;
     var array = JSON.parse(localStorage.getItem('carrito'));
-    array.forEach(trago => {
-        total += (parseInt(trago.cantidad) * parseInt(trago.precio));
-    })
+    if(array){
+        array.forEach(trago => {
+            total += (parseInt(trago.cantidad) * parseInt(trago.precio));
+        })
+    }
 
     $('.total').empty();
     var main = $('.total');

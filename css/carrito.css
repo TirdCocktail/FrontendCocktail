@@ -1,36 +1,4 @@
-.nombre-trago{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-}
 
-.nombre-trago> p{
-    font-weight: bold;
-    font-size: 18px;
-    font-weight: bold;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    color:rgb(255, 255, 255);
-}
-.nombre-trago> p{
-    font-weight: bold;
-    font-size: 18px;
-    font-weight: bold;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    color:rgb(255, 255, 255);
-
-
-    border-top: 1px solid rgb(218, 218, 218);
-    border-bottom: 1px solid rgb(218, 218, 218);
-    background-color: #1b1b1b;;
-    color: rgb(235, 235, 235);
-    padding: 5px;
-    width: 100%;
-    text-align: center;
-
-}
 .conteiner-trago-carrito {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30vh, 1fr));
@@ -67,16 +35,17 @@
 }
 .total{
     width: 100%;
-    background-color: blanchedalmond;
-
-    border-top: 1px solid rgb(218, 218, 218);
-    border-bottom: 1px solid rgb(218, 218, 218);
     background-color: #1b1b1b;;
     color: rgb(235, 235, 235);
-    margin-bottom: 10px;
 }
 .total>p{
-    padding: 20px;
+    padding: 10px;
     font-size: 25px;
     text-align: center;
+}
+#confirmar{
+    background-color: rgb(148, 148, 148);
+}
+#confirmar{
+    background-color: rgb(99, 99, 99);
 }
