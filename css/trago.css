@@ -55,7 +55,7 @@ html {
     overflow: hidden;
     color:rgb(255, 255, 255);
 }
-.imagen-trago {
+.n-trago {
     text-align: center;
     border-radius: 10px;
     background-size: cover;
@@ -169,6 +169,21 @@ html {
 }
 */
 @media screen and (min-width:768px){
+    .modal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        row-gap: 60px;
+        width: 60%;
+        height: 50%;
+        border-radius: 7px;
+        text-align: center;
+        font-size: 32px;
+    }
     .conteiner-info {
         min-height: 78vh;
         max-height: auto;
@@ -176,6 +191,7 @@ html {
         grid-template-columns: 40% 60%;
         background-color: #454951
     }
+    
 }
 
 @media screen and (min-width: 1024px) {
@@ -255,4 +271,73 @@ label{
 }
 input{
     opacity: .8;
+}
+
+
+
+.modal-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;  
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    row-gap: 20px;
+    width: 90%;
+    height: 50%;
+    border-radius: 7px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.text-modal:before {
+	content:'';
+	position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.75);
+}
+.text-modal{
+	position: relative
+}
+.text-modal>p{
+    padding: 10px;
+	color: #fff;
+	position: relative
+}
+.button-acept{
+    background-color: rgb(131, 131, 131);
+    padding: 13px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: white;
+}
+.button-acept:hover{
+    background-color: rgb(40, 161, 40);
+}
+
+.validaciones,#unidades{
+    color: rgb(253, 39, 39);
+    text-align: center;
 }
