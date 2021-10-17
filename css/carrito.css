@@ -35,10 +35,6 @@
 }
 .total{
     width: 100%;
-    background-color: blanchedalmond;
-
-    border-top: 1px solid rgb(218, 218, 218);
-    border-bottom: 1px solid rgb(218, 218, 218);
     background-color: #1b1b1b;;
     color: rgb(235, 235, 235);
 }

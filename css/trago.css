@@ -146,28 +146,6 @@ html {
     text-align: center;
 }
 
-/*
-@media screen and (min-width:768px){
-}
-@media screen and (min-width: 481px) and (max-width: 767px) {
-}
-@media screen and (max-width: 480px) {
-    .conteiner-info {
-        min-height: 78vh;
-        max-height: auto;
-        display: flex;
-        flex-direction: column;
-    }
-}
-@media screen and (max-width: 290px) {
-    .conteiner-info {
-        min-height: 78vh;
-        max-height: auto;
-        display: flex;
-        flex-direction: column;
-    }
-}
-*/
 @media screen and (min-width:768px){
     .modal {
         display: flex;

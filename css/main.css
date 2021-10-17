@@ -20,12 +20,12 @@ html {
     max-height: auto;
     display: flex;
     flex-direction: column;
+    background-color: #454951;
 }
 /* MENÚ DE CATEGORÍAS */
 
 
 .conteiner-generos {
-    background-color: #454951;
     padding-left: 1%;
     padding-right: 1%;
     padding-top: 1%;
@@ -144,11 +144,6 @@ article:hover {
 
 
 
-
-
-
-
-
 /* BUSCADOR */
 
 .header-buscador {
@@ -187,7 +182,6 @@ article:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*position: absolute;*/
     background: #f1efef;
     padding: 10px;
     height: 40px;
@@ -341,4 +335,11 @@ article:hover {
     padding: 5px;
     width: 100%;
     text-align: center;
+}
+
+#categoria> *{
+    padding: 5px;
+}
+#alcohol> *{
+    padding: 5px;
 }

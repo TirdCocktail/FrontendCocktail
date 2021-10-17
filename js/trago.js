@@ -15,20 +15,18 @@ $(document).on('click', '.button-acept', function () {
 function Unidades(){
     let trago_compra = JSON.parse(sessionStorage.getItem("trago-completo"));
     var array = JSON.parse(localStorage.getItem('carrito'));
-    array.forEach(trago => {
-        //precio = Math.round(Math.random() * (800 - 200) + 200);
-        console.log(trago.idDrink )
-        console.log(trago_compra.idDrink)
-        if (trago.idDrink === trago_compra.idDrink) {
-            console.log("ENTRA");
-            $('#unidades').empty();
-            var main = $('#unidades');
-            var card = `
-                Hay ${trago.cantidad} unidades en el carrito
-                `
-            main.append(card);
-        }
-    })
+    if(array){
+        array.forEach(trago => {
+            if (trago.idDrink === trago_compra.idDrink) {
+                $('#unidades').empty();
+                var main = $('#unidades');
+                var card = `
+                    Hay ${trago.cantidad} unidades en el carrito
+                    `
+                main.append(card);
+            }
+        })
+    }
 }
 function CargarTrago() {
     $.ajax({
