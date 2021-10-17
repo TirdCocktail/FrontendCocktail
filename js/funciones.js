@@ -123,7 +123,6 @@ $(document).on('click','#buscarTrago', function() {
     if (busc == "nombre"){
         buscarPorNombre(busqueda);
     } else if(busc == "ingrediente") {
-        console.log(busc);
         buscarPorIngrediente(busqueda);
     }
 });
@@ -137,13 +136,11 @@ function buscarPorNombre(valor) {
     }).done((data) => {
         var result = data.drinks;
         if(result != null){
-            console.log(result);
             var pagina = 0;
             sessionStorage.setItem("tragos", JSON.stringify(data.drinks));
             Renderizar(pagina);
         }
         else{
-            console.log(result);
             error.innerHTML ="Sin resultados, vuelva a intentar."
         }
     });
@@ -151,7 +148,6 @@ function buscarPorNombre(valor) {
 
 function buscarPorIngrediente(valor){
     const URL  = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=';
-    console.log(URL);
     $.ajax({
         type: 'GET',
         url: `${URL}`+ valor,
