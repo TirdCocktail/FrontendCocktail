@@ -6,6 +6,7 @@
 html {
 	scroll-behavior: smooth;
 }
+/*
 .contenido {
     min-height: 78vh;
     max-height: auto;
@@ -13,7 +14,13 @@ html {
     flex-direction: column;
     background-color: #454951
 }
-
+*/
+.contenido {
+    min-height: 78vh;
+    max-height: auto;
+    display: flex;
+    flex-direction: column;
+}
 /* MENÚ DE CATEGORÍAS */
 
 
@@ -56,6 +63,7 @@ h4 {
     grid-auto-rows: minmax(320px, auto);
     grid-row-gap: 15px;
     grid-column-gap: 15px;
+    padding-top: 15px;
 }
 
 /* ARTICULOS */
@@ -66,7 +74,7 @@ article {
 }
 
 article:hover {
-    transform: scale(1.04);
+    transform: scale(1.06);
     border-radius: 9px;
 }
 
@@ -104,6 +112,8 @@ article:hover {
     display: flex;
     align-items: center;
     justify-content: center; 
+    flex-direction: column;
+
 }
 
 .descripcion > p{
@@ -151,17 +161,33 @@ article:hover {
 
 .container-buscador {
     width: 100%;
-    height: 40px;
+    height: auto;
+    /*display: grid;*/
+    justify-content: center;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    
+}
+
+.filtro-busqueda{
     display: flex;
     justify-content: center;
-    padding-bottom: 7%;
+    padding: 10px;
 }
+
+.tipo-busqueda{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 
 .buscar {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    /*position: absolute;*/
     background: #f1efef;
     padding: 10px;
     height: 40px;
@@ -217,5 +243,69 @@ article:hover {
 }
 
 .texto-busqueda{
+    text-align: center;
+}
+
+.button-view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1%;
+    background-color: #454951;
+}
+.ver-mas{
+    font-size: 20px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 4px;
+    border: solid 1px rgb(0, 0, 0);
+    margin-top: 3px;
+}
+.ver-mas:hover{
+    background-color: rgb(71, 207, 89);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+
+
+
+#view-trago{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgb(218, 218, 218);
+    border-bottom: 1px solid rgb(218, 218, 218);
+    background-color: #1b1b1b;
+    color: rgb(235, 235, 235);
+    font-weight: bold;
+    font-size: 18px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+#buscx, #conalcohol, #selcat{
+    color: rgb(235, 235, 235);
+    background-color: #1b1b1b;
+    border-top: 1px solid rgb(218, 218, 218);
+    border-bottom: 1px solid rgb(218, 218, 218);
+    border-left: 1px solid rgb(218, 218, 218);
+    border-right: 1px solid rgb(218, 218, 218); ;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px;
+}
+
+
+
+#alcohol, #categoria{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    column-gap: 10px;
+    row-gap: 10px;
+    padding-bottom: 15px;
+    width: 100%;
     text-align: center;
 }

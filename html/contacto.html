@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" /> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/mapa.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+    <script src="https://kit.fontawesome.com/3dc5764727.js" crossorigin="anonymous"></script>
+    </script>
+</head>
+<body>
+    <div class="cabecera">
+        <header>
+            <div class="encabezado">
+                <div class="imagen-encabezado">
+                    <img id="logo" src="../img/logo.png" alt="logococktail">
+                </div>
+                <div class="titulo">
+                    <h1>Tird Cocktail</h1>
+                </div>
+                <div class="carrito">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="contenido">
+        <div class="menu">
+            <nav>
+                <ul>
+                    <a class="enlace" href="index.html"><li>Inicio</li></a>
+                    <a class="enlace" href="historial.html"><li>Historial</li></a>
+                    <a class="enlace" href="contacto.html"><li>Contacto</li></a>
+            </ul>
+            </nav>
+        </div>
+            <div id="presentacion">
+                <h2>Los mejores tragos y bebidas a tu alcance</h2>
+            </div>
+                <div class="conteiner-contacto">
+                    <div class="equipo">
+                        <div class="titulo-contacto">
+                            <p>Nuestro Equipo</p>
+                        </div>
+                        <div class="columna">
+                            <span>IVAN EMANUEL RODRIGUEZ</span>
+                            <p>Bartender con más de 10 años de experiencia en la elaboración de diferentes tragos, cuenta con certificaciones de cursos de bartender realizados diferentes paises del mundo, utilizando las ultimas técnicas de la industria y tendendencias.
+                            Habiendo obtenido el premio a mejor bartender en el año 2018</p>
+                            <br>
+                            <br>
+                            <span>DANIEL TERCEROS QUIROZ</span>
+                            <p>Encargado de ventas con mas de 12 años de experiencia en el servicio de ventas de bebidas para eventos y fiestas. Ademas cuenta con cursos y certificaciones en la degustación de tragos y cocktails. Habiendo sido jurado de la competencia de bartenders de Argentina en los ultimos 3 años.</p>
+                        </div>
+                    </div>
+                    <div class="contacto">
+                        <div class="titulo-contacto">
+                            <p>Contactenos</p>
+                        </div>
+                        <div class="columna">
+                            <i class="icono fas fa-phone-square"></i>
+                            <span>
+                                112233445566
+                            </span>
+                            <span>
+                                116677889910
+                            </span>
+                        </div>
+                        <div class="columna">
+                            <i class="icono fas fa-envelope-square"></i>
+                            <span>ventas@tirdcocktail.com</span>
+                            <span>clientes@tirdcoktail.com</span>
+                        </div>
+                        <div class="columna">
+                            <i class="icono fas fa-house-user"></i>
+                            <span>Oficina Central</span>
+                            <p>Calle 14 entre 51 y 53</p>
+                            <p>La Plata, Pcia. Bs. As.</p>
+                        </div>
+                    </div>
+                    <div class="ubicacion">
+                        <div class="titulo-contacto">
+                            <p>Ubicación</p>
+                        </div>
+                        <div id="mapa"></div>
+                    </div>
+                </div>
+    </div>
+
+
+    <footer>
+        <p>Copyright Ivan Rodriguez - Luis Daniel Terceros Quiroz</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
+   <script src="../js/map.js"></script>
+</body>
+</html>
