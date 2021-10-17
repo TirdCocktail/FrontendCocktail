@@ -40,14 +40,17 @@
                 </nav>
             </div>
             <div class="container-buscador">
-                <div class="buscar">
-                    <div class="texto">
-                        <input type="text" class="buscar-texto" placeholder="Ingrese el nombre del trago"
-                            id="busqueda" />
-                    </div>
-                    <div class="busqueda boton" id="buscarTrago">
-                        <i class="fas fa-search"></i>
-                    </div>
+                <div class="filtro-busqueda">
+                    <label for="busc" id="buscx">Buscar por:</label>
+                    <select name="busc" id="busc">
+                        <option value="nombre">Nombre</option>
+                        <option value="ingrediente">Ingrediente</option>
+                        <option value="contienealcohol">Contenido Alcohólico</option>
+                        <option value="categoria">Categoria</option>                      
+                    </select>
+                </div>
+                <div class="tipo-busqueda">
+
                 </div>
             </div>
 
