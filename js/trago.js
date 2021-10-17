@@ -15,7 +15,7 @@ $(document).on('click', '.button-acept', function () {
 function Unidades(){
     let trago_compra = JSON.parse(sessionStorage.getItem("trago-completo"));
     var array = JSON.parse(localStorage.getItem('carrito'));
-    if(array){
+    if(array.length>0){
         array.forEach(trago => {
             if (trago.idDrink === trago_compra.idDrink) {
                 $('#unidades').empty();
@@ -26,6 +26,14 @@ function Unidades(){
                 main.append(card);
             }
         })
+    }
+    else{
+        $('#unidades').empty();
+        var main = $('#unidades');
+        var card = `
+        Hay 0 unidades en el carrito
+        `
+        main.append(card);
     }
 }
 function CargarTrago() {

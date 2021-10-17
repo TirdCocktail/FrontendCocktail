@@ -63,7 +63,7 @@ $(document).on('click', '.fa-shopping-cart', function () {
 function CargarTotal() {
     var total = 0;
     var array = JSON.parse(localStorage.getItem('carrito'));
-    if(array){
+    if(array.length>0){
         array.forEach(trago => {
             total += (parseInt(trago.cantidad) * parseInt(trago.precio));
         })
