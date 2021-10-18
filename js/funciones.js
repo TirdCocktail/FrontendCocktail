@@ -116,6 +116,7 @@ $('#busc').change(function() {
 
 $(document).on('click','#buscarTrago', function() {
     $('#error').empty();
+    $('.button-view').empty();
     $('#dinamica').empty();
     var busqueda = document.getElementById("busqueda").value;
     if (busqueda == "") return;

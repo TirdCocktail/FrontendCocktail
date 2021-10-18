@@ -6,15 +6,7 @@
 html {
 	scroll-behavior: smooth;
 }
-/*
-.contenido {
-    min-height: 78vh;
-    max-height: auto;
-    display: flex;
-    flex-direction: column;
-    background-color: #454951
-}
-*/
+
 .contenido {
     min-height: 78vh;
     max-height: auto;
