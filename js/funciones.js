@@ -1,7 +1,6 @@
 window.onload = () => {
     CargarModo();
     sessionStorage.removeItem("idtrago");
-    
 }
 function CargarModo(){
     if(sessionStorage.getItem("modo") == 1){
@@ -9,7 +8,6 @@ function CargarModo(){
         $('input.checkbox').click();
     }
 }
-
 
 var busc = document.getElementById("busc").value;
 var ini = [];
@@ -53,8 +51,6 @@ function Inicio(){
         Renderizar(pagina);
     });
 }
-
-
 
 $('#busc').change(function() {
     busc = $(this).val();
@@ -173,8 +169,6 @@ function buscarPorIngrediente(valor){
     });;
 }
 
-
-
 function ContAlcohol(){
     $.ajax({
         type: 'GET',
@@ -203,7 +197,6 @@ function Categoria(){
     });
 }
 
-
 $(document).on('click', '#category', function () {
     $('#dinamica').empty();
     var category = $(this).val();
@@ -218,7 +211,6 @@ $(document).on('click', '#category', function () {
     });
 });
 
-
 $(document).on('click', '#alcoholic', function () {
     $('#dinamica').empty();
     var alcoholic = $(this).val();
@@ -232,8 +224,6 @@ $(document).on('click', '#alcoholic', function () {
         Renderizar(pagina);
     });
 });
-
-
 
 function Renderizar(pagina) {
     let mapa;

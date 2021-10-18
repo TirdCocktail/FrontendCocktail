@@ -1,6 +1,3 @@
-/* El diseño de este botón fue sacado de internet y modificado ligeramente
-   , no así el .js para que perdure al cambiar de página. */
-   
 .boton-modo{
     display: flex;
     align-self: center;

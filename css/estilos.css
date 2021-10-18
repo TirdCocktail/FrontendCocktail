@@ -24,24 +24,16 @@ ul{
     flex-direction: column;
 }
 .enlace {
-    /*color: #ffffff;*/
     display: inline-block;
     padding: 5px;
     font-size: 19px;
     font-weight: bold;
-    /*background-color: #717b7a;*/
     text-align: center;
     padding-top: 16px;
     padding-bottom: 16px;
     border: solid 1px black;
 
 }
-/*
-.enlace:hover {
-    background-color: #cbe6e2;
-    color: black;
-}
-*/
 /* HEADER */
 .cabecera {
     display: flex;
@@ -49,8 +41,6 @@ ul{
     justify-content: center;
     min-height: 14vh;
     width: 100%;
-    /*background-color: #1b1b1b;
-    color: #ffffff;*/
     padding: 10px;
 }
 header {
@@ -139,8 +129,6 @@ footer {
     font-size: 20px;
     width: 100%;
     font-weight: bold;
-    /*background-color: #1b1b1b;
-    color: #ffffff;*/
     min-height: 8vh;
     display: flex;
     text-align: center;

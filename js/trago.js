@@ -4,9 +4,6 @@ window.onload = () => {
         window.location.href = 'index.html';
     }
     CargarTrago();
-
-
-    
 }
 function CargarModo(){
     if(sessionStorage.getItem("modo") == 1){
@@ -206,7 +203,6 @@ $(document).on('click', '#agregar', function () {
     let trago_compra = JSON.parse(sessionStorage.getItem("trago-completo"));
     let mapa;
     if (!localStorage.getItem('carrito')) {
-        //trago_compra = JSON.parse(sessionStorage.getItem("trago-completo"));
         trago_compra.cantidad = parseInt(cantidad_tragos);
         mapa = new Map(JSON.parse(localStorage.getItem('precios-tragos')));
         trago_compra.precio = mapa.get(trago_compra.idDrink);
@@ -223,7 +219,6 @@ $(document).on('click', '#agregar', function () {
             }
         })
         if (!encontrado) {
-            //trago_compra = JSON.parse(sessionStorage.getItem("trago-completo"));
             trago_compra.cantidad = parseInt(cantidad_tragos);
             mapa = new Map(JSON.parse(localStorage.getItem('precios-tragos')));
             trago_compra.precio = mapa.get(trago_compra.idDrink);
@@ -294,7 +289,6 @@ $(document).on('click', '#enviar', function () {
 	localStorage.setItem("mensaje", mensaje);
 
     var regExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
 
     if (mailemisor == null || mailemisor == "" || !regExp.test(mailemisor)) {
         $('.validaciones').empty();

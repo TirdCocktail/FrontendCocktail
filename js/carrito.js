@@ -60,8 +60,6 @@ $(document).on('click', '#quitar', function () {
     CargarTotal();
 });
 
-
-
 $(document).on('click', '.fa-shopping-cart', function () {
     window.location.href = 'carrito.html'
 });

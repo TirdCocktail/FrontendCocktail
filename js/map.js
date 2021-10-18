@@ -18,3 +18,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.marker([-34.92212, -57.95541]).addTo(mapa).bindPopup('Catedral de La Plata <br> Calle 14 E/ 51 y 53, La Plata, Pcia.de Bs. As.')
 .openPopup();
 }
+
+$(document).on('click', '.fa-shopping-cart', function () {
+    window.location.href = 'carrito.html'
+});
+
+$(document).on('click', '#logo', function () {
+    window.location.href = 'index.html'
+});

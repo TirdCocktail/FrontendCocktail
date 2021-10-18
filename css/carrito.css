@@ -9,43 +9,26 @@
 .trago-carrito {
     border-radius: 9px;
     padding: 10px;
-    /*box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.3)*/
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-rows: 70% auto;
-    background-color: #1b1b1b;
-    border: solid 3px rgb(0, 87, 0);
 }
 
 .quitar{
     font-size: 20px;
-    background-color: rgb(211, 65, 65);
-    color: rgb(255, 255, 255);
     border-radius: 5px;
     padding: 4px;
-    border: solid 1px rgb(0, 0, 0);
     margin-top: 3px;
 }
 .quitar:hover{
-    background-color: rgb(228, 0, 0);
-    border: solid 1px rgb(65, 65, 65);
-    color: rgb(0, 0, 0);
     font-weight: bold;
 }
 .total{
     width: 100%;
-    background-color: #1b1b1b;;
-    color: rgb(235, 235, 235);
 }
 .total>p{
     padding: 10px;
     font-size: 25px;
     text-align: center;
-}
-#confirmar{
-    background-color: rgb(148, 148, 148);
-}
-#confirmar{
-    background-color: rgb(99, 99, 99);
 }
