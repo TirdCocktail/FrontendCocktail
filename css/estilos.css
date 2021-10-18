@@ -36,11 +36,12 @@ ul{
     border: solid 1px black;
 
 }
+/*
 .enlace:hover {
-    /*background-color: #cbe6e2;
-    color: black;*/
+    background-color: #cbe6e2;
+    color: black;
 }
-
+*/
 /* HEADER */
 .cabecera {
     display: flex;
