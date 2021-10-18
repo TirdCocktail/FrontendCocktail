@@ -171,3 +171,8 @@ label{
 #confirmar{
     background-color: rgb(148, 148, 148);
 }
+
+
+.titulo-contacto > p{
+    background-color: #1b1b1b;;
+}
