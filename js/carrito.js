@@ -1,13 +1,19 @@
 window.onload = () => {
+    CargarModo();
     CargarCarrito();
     CargarTotal() 
+}
+function CargarModo(){
+    if(sessionStorage.getItem("modo") == 1){
+        console.log("Estaba en dark");
+        $('input.checkbox').click();
+    }
 }
 
 function CargarCarrito() {
     $('#dinamica').empty();
     var i = 0;
     var main = $('#dinamica');
-    var precio;
     var array = JSON.parse(localStorage.getItem('carrito'));
     if(array){
         array.forEach(trago => {
@@ -57,7 +63,7 @@ $(document).on('click', '#quitar', function () {
 
 
 $(document).on('click', '.fa-shopping-cart', function () {
-    window.open('/html/carrito.html');
+    window.location.href = 'carrito.html'
 });
 
 function CargarTotal() {

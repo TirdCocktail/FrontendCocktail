@@ -1,10 +1,18 @@
 window.onload = () => {
+    CargarModo();
     if (!sessionStorage.getItem("idtrago")) {
         window.location.href = 'index.html';
     }
     CargarTrago();
 
 
+    
+}
+function CargarModo(){
+    if(sessionStorage.getItem("modo") == 1){
+        console.log("Estaba en dark");
+        $('input.checkbox').click();
+    }
 }
 $(document).on('click', '.imagen-trago', function () {
     
@@ -237,7 +245,7 @@ $(document).on('click', '#agregar', function () {
 });
 
 $(document).on('click', '.fa-shopping-cart', function () {
-    window.open('/html/carrito.html');
+    window.location.href = 'carrito.html'
 });
 
 function AgregarAlHistorial2() {

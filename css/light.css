@@ -1,0 +1,76 @@
+.enlace {
+    color: #ffffff;
+    background-color: #55a49e;
+    border: solid 1px black;
+
+}
+.enlace:hover {
+    background-color: #cbe6e2;
+    color: black;
+}
+.cabecera {
+    background: linear-gradient(to bottom, #55a49e 0%, #55a49e 100%); 
+    color: #ffffff;
+}
+footer {
+    background: linear-gradient(to bottom, #55a49e 0%, #55a49e 100%); 
+    color: #ffffff;
+}
+
+
+.contenido {
+    background: linear-gradient(to bottom, #e5e5e5 0%, #e5e5e5 100%); 
+}
+.trago {
+    background-color: #53514e;
+}
+
+.descripcion > p{
+    color:rgb(218, 218, 218);
+}
+.buscar {
+    background: #f1efef;
+    border: solid 1px gray;
+}
+::-webkit-input-placeholder {
+    color: rgb(24, 23, 23);
+}
+.boton {
+    color: #493c33;
+}
+.boton:hover {
+    color: #7f13d6;
+}
+.ver-mas{
+    background-color: #53514e;
+    color: rgb(218, 216, 216);
+}
+.ver-mas:hover{
+    color: rgb(37, 37, 37);
+    background-color: #55a49e;
+    font-weight: normal;
+}
+#view-trago{
+    border-top: 1px solid rgb(218, 218, 218);
+    border-bottom: 1px solid rgb(218, 218, 218);
+    background-color: #1b1b1b;
+    color: rgb(235, 235, 235);
+}
+#buscx, #conalcohol, #selcat{
+    color: black
+    /*background-color: #333333;
+    border-top: 1px solid rgb(218, 218, 218);
+    border-bottom: 1px solid rgb(218, 218, 218);
+    border-left: 1px solid rgb(218, 218, 218);
+    border-right: 1px solid rgb(218, 218, 218);*/
+}
+.nombre-trago> p{
+    color:rgb(255, 255, 255);
+}
+.nombre-trago> p{
+    color:rgb(255, 255, 255);
+    border-top: 1px solid rgb(218, 218, 218);
+    border-bottom: 1px solid rgb(218, 218, 218);
+    background-color: #1b1b1b;;
+    color: rgb(235, 235, 235);
+}

@@ -1,5 +1,12 @@
 window.onload = () => {
+    CargarModo();
     cargarMapa();
+}
+function CargarModo(){
+    if(sessionStorage.getItem("modo") == 1){
+        console.log("Estaba en dark");
+        $('input.checkbox').click();
+    }
 }
 
 function cargarMapa(){

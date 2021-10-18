@@ -7,6 +7,8 @@
     <title>Tird Cocktail</title>
     <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/modo.css">
+    <link rel="stylesheet" href="/css/light.css" class='theme'>
     <script src="https://kit.fontawesome.com/3dc5764727.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
@@ -21,8 +23,18 @@
                 <div class="titulo">
                     <h1>Tird Cocktail</h1>
                 </div>
-                <div class="carrito">
-                    <i class="fas fa-shopping-cart"></i>
+                <div class="carrito-modo">
+                    <div class="boton-modo">
+                        <div class="modo">
+                          <label class="switch">
+                            <input type="checkbox" class="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                    </div>
+                    <div class="carrito">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
                 </div>
             </div>
         </header>
@@ -58,6 +70,7 @@
     <footer>
         <p>Copyright Ivan Rodriguez - Luis Daniel Terceros Quiroz</p>
     </footer>
+    <script type="module" src="../js/modo.js"></script>
     <script type="module" src="../js/historial.js"></script>
     <script src="../js/jQuery/jquery-3.5.1.min.js"></script>
 </body>

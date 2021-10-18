@@ -1,6 +1,16 @@
 window.onload = () => {
+    CargarModo();
     sessionStorage.removeItem("idtrago");
+    
 }
+function CargarModo(){
+    if(sessionStorage.getItem("modo") == 1){
+        console.log("Estaba en dark");
+        $('input.checkbox').click();
+    }
+}
+
+
 var busc = document.getElementById("busc").value;
 var ini = [];
 if (busc == 'nombre'){
@@ -277,7 +287,7 @@ $(document).on('click', 'article', function () {
     window.location.href = '/html/trago.html';
 });
 $(document).on('click', '.fa-shopping-cart', function () {
-    window.open('/html/carrito.html');
+    window.location.href = 'carrito.html'
 });
 
 $(document).on('click', '#logo', function () {
