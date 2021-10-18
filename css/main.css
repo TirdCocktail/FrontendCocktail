@@ -11,7 +11,7 @@ html {
     max-height: auto;
     display: flex;
     flex-direction: column;
-    /*background-color: #454951;*/
+    background-color: #454951
 }
 /* MENÚ DE CATEGORÍAS */
 
@@ -195,10 +195,6 @@ article:hover {
 
 
 
-.boton:hover {
-    /*color: black;*/
-}
-
 .texto-busqueda{
     text-align: center;
 }
@@ -225,8 +221,14 @@ article:hover {
     font-weight: bold;
 }
 
-
-
+#error{
+    display:grid;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    padding: 1%;
+}
 
 #view-trago{
     display: flex;
